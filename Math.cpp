@@ -45,5 +45,10 @@ Vector2 PolarToVector2(PolarCoordinates Polar) {
 }
 
 PolarCoordinates Vector2ToPolar(Vector2 Vector) {
-	return { (float)(atan2(Vector.y,Vector.x)),Vector.Length() };
+	if (Vector.Length() != 0) {
+		return { Vector.Length(), (float)(atan2(Vector.y,Vector.x)) };
+	}
+	else {
+		return { 0,0 };
+	}
 }
